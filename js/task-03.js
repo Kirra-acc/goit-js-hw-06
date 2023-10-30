@@ -13,37 +13,15 @@ const images = [
   },
 ];
 
-// const gallery = document.querySelector(".gallery");
-
-// const template = `
-//   <li class="image">
-//     <img src="${image.url}" alt="${image.alt}">
-//   </li>
-// `;
-
-// images.forEach((image) => {
-//   const html = template.replace(/{{image}}/g, JSON.stringify(image));
-//   gallery.insertAdjacentHTML("afterbegin", html);
-// });
-
-// gallery.classList.add("flex");
-// gallery.querySelectorAll(".image").forEach((image) => {
-//   image.classList.add("w-full");
-// });
-
-
 const gallery = document.querySelector(".gallery");
 
-const fragment = document.createDocumentFragment();
+const template = `
+  <img
+    src="${image.url}"
+    alt="${image.alt}"
+  />
+`;
 
-images.forEach((image) => {
-  const img = document.createElement("img");
-  img.src = image.url;
-  img.alt = image.alt;
-  img.classList.add("w-full");
-  fragment.appendChild(img);
-});
+gallery.insertAdjacentHTML("afterbegin", images.map(image => imgTemplate).join(""));
 
-gallery.appendChild(fragment);
-
-gallery.classList.add("flex");
+gallery.classList.add("gallery-flex");
