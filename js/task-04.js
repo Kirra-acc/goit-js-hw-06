@@ -1,13 +1,21 @@
-const counterValue = document.querySelector("#value").textContent;
+let counterValue = 0;
 
 const decrementButton = document.querySelector("#counter button[data-action='decrement']");
 decrementButton.addEventListener("click", () => {
   counterValue -= 1;
-  document.querySelector("#value").textContent = counterValue;
+
+  updateInterface();
 });
 
 const incrementButton = document.querySelector("#counter button[data-action='increment']");
 incrementButton.addEventListener("click", () => {
   counterValue += 1;
-  document.querySelector("#value").textContent = counterValue;
+
+  updateInterface();
 });
+
+function updateInterface() {
+  const spanValue = document.querySelector("#value");
+
+  spanValue.textContent = counterValue;
+}

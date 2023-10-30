@@ -15,13 +15,23 @@ const images = [
 
 const gallery = document.querySelector(".gallery");
 
-const template = `
+// const template = `
+// <li>
+//   <img
+//     src="${image.url}"
+//     alt="${image.alt}"
+//   />
+// </li>
+// `;
+
+gallery.insertAdjacentHTML("afterbegin", images.map(image => `
+<li>
   <img
     src="${image.url}"
     alt="${image.alt}"
+    width="100"
   />
-`;
-
-gallery.insertAdjacentHTML("afterbegin", images.map(image => imgTemplate).join(""));
+</li>
+`).join(""));
 
 gallery.classList.add("gallery-flex");
