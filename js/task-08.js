@@ -17,25 +17,54 @@
 //   form.reset();
 // }
 
+
+// need to destructure inputs[0] and inputs[1]
 const form = document.querySelector(".login-form");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  
-  const inputs = form.elements;
 
-  if (!inputs[0].value || !inputs[1].value) {
-    return alert("Please fill all fields!");
-  }
+  const inputs = form.elements;
 
   const email = inputs[0].value;
   const pass = inputs[1].value;
+
+  if (!email || !pass) {
+    return alert("Please fill all fields!");
+  }
+
   const data = { email, pass };
 
-  console.log({email, pass});
+  console.log({ email, pass });
 
   form.reset();
 });
+
+
+
+// my code
+// const form = document.querySelector(".login-form");
+
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault();
+  
+//   const inputs = form.elements;
+
+//   if (!inputs[0].value || !inputs[1].value) {
+//     return alert("Please fill all fields!");
+//   }
+
+//   const email = inputs[0].value;
+//   const pass = inputs[1].value;
+//   const data = { email, pass };
+
+//   console.log({email, pass});
+
+//   form.reset();
+// });
+
+
+
 
 
 
